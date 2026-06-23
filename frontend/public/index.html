@@ -1,43 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BERSERKER Tournament Control</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a3a52; color: white; font-family: Arial, sans-serif; padding: 20px; }
+    h1 { color: #00D9FF; font-size: 32px; margin-bottom: 10px; }
+    p { color: #888; margin-bottom: 20px; }
+    button { padding: 10px 20px; margin-right: 10px; background: #00D9FF; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .stats { background: #0f1e2e; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+    .stats h2 { color: #00D9FF; margin-bottom: 10px; }
+    .players { background: #0f1e2e; padding: 20px; border-radius: 5px; }
+    .players h2 { color: #00D9FF; margin-bottom: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
+    .player-btn { padding: 15px; background: #1a3a52; color: white; border: 2px solid #00D9FF; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px; }
+    .player-btn:hover { background: #00D9FF; color: black; }
+    .active { background: #00D9FF; color: black; }
+    .footer { margin-top: 40px; text-align: center; color: #666; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <h1>⚡ BERSERKER CLAN</h1>
+  <p>TORNEO EN VIVO</p>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  <div style="margin-bottom: 20px;">
+    <button onclick="alert('GRABANDO')">GRABAR</button>
+    <button onclick="alert('EN VIVO')">EN VIVO</button>
+  </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  <div class="stats">
+    <h2>📊 ESTADÍSTICAS</h2>
+    <p>⏰ Tiempo: 24:35</p>
+    <p>⚔️ Kills: 47</p>
+    <p>🔴 En Batalla: 7/8</p>
+  </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
-</html>
+  <div class="players">
+    <h2>⚡ JUGADORES EN BATALLA</h2>
+    <div class="grid">
+      <button class="player-btn" onclick="select(this, 'IceStorm')">⚔️<br>IceStorm<br>12⚡</button>
+      <button class="player-btn" onclick="select(this, 'ThunderAxe')">⚔️<br>ThunderAxe<br>8⚡</button>
+      <button class="player-btn" onclick="select(this, 'FrostByte')">⚔️<br>FrostByte<br>15⚡</button>
+      <button class="player-btn" onclick="select(this, 'StormShield')">⚔️<br>StormShield<br>5⚡</button>
+      <button class="player-btn" onclick="select(this, 'VoidSlayer')">⚔️<br>VoidSlayer<br>10⚡</button>
+      <button class="player-btn" onclick="select(this, 'IceBreaker')">⚔️<br>IceBreaker<br>9⚡</button>
+      <button class="player-btn" onclick="select(this, 'LightningKing')">⚔️<br>LightningKing<br>4⚡</button>
+      <button class="player-btn" onclick="select(this, 'FrostGuard')">⚔️<br>FrostGuard<br>7⚡</button>
+    </div>
+  </div>
+
+  <div id="stream" style="margin-top: 20px; padding: 20px; background: #0f1e2e; border-radius: 5px; border-left: 4px solid #00D9FF; display: none;">
+    <h3 style="color: #00D9FF;">🎮 Stream Principal: <span id="playerName"></span></h3>
+  </div>
+
+  <div class="footer">
+    <p>⚡
