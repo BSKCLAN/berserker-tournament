@@ -7,65 +7,99 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { background: #1a3a52; color: white; font-family: Arial, sans-serif; padding: 20px; }
-    h1 { color: #00D9FF; font-size: 32px; margin-bottom: 10px; }
+    h1 { color: #00D9FF; font-size: 36px; margin-bottom: 10px; }
     p { color: #888; margin-bottom: 20px; }
-    button { padding: 10px 20px; margin-right: 10px; background: #00D9FF; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
-    .stats { background: #0f1e2e; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
-    .stats h2 { color: #00D9FF; margin-bottom: 10px; }
-    .players { background: #0f1e2e; padding: 20px; border-radius: 5px; }
-    .players h2 { color: #00D9FF; margin-bottom: 20px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; }
-    .player-btn { padding: 15px; background: #1a3a52; color: white; border: 2px solid #00D9FF; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 12px; }
+    button { padding: 12px 24px; margin: 5px; background: #00D9FF; color: black; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 14px; }
+    button:hover { background: #00A8CC; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .section { background: #0f1e2e; padding: 20px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #00D9FF; }
+    .section h2 { color: #00D9FF; margin-bottom: 15px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: 10px; }
+    .player-btn { padding: 12px; background: #1a3a52; color: white; border: 2px solid #00D9FF; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 11px; transition: 0.2s; }
     .player-btn:hover { background: #00D9FF; color: black; }
-    .active { background: #00D9FF; color: black; }
-    .footer { margin-top: 40px; text-align: center; color: #666; font-size: 12px; }
+    .player-btn.active { background: #00D9FF; color: black; box-shadow: 0 0 10px #00D9FF; }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+    .stat { background: #1a3a52; padding: 15px; border-radius: 5px; text-align: center; }
+    .stat-value { color: #00D9FF; font-size: 24px; font-weight: bold; }
+    .stat-label { color: #888; font-size: 12px; margin-top: 5px; }
+    .footer { text-align: center; color: #666; font-size: 12px; margin-top: 40px; }
   </style>
 </head>
 <body>
-  <h1>⚡ BERSERKER CLAN</h1>
-  <p>TORNEO EN VIVO</p>
+  <div class="container">
+    <h1>⚡ BERSERKER CLAN</h1>
+    <p>TORNEO EN VIVO - WARZONE</p>
 
-  <div style="margin-bottom: 20px;">
-    <button onclick="alert('GRABANDO')">GRABAR</button>
-    <button onclick="alert('EN VIVO')">EN VIVO</button>
-  </div>
+    <div style="margin-bottom: 20px;">
+      <button onclick="toggleRecording()" id="recordBtn">⚫ GRABAR</button>
+      <button onclick="toggleLive()" id="liveBtn">📡 EN VIVO</button>
+    </div>
 
-  <div class="stats">
-    <h2>📊 ESTADÍSTICAS</h2>
-    <p>⏰ Tiempo: 24:35</p>
-    <p>⚔️ Kills: 47</p>
-    <p>🔴 En Batalla: 7/8</p>
-  </div>
+    <div class="section">
+      <h2>📊 ESTADÍSTICAS EN VIVO</h2>
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-value">24:35</div>
+          <div class="stat-label">⏰ Tiempo</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">47</div>
+          <div class="stat-label">⚔️ Kills Totales</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">7/8</div>
+          <div class="stat-label">🔴 En Batalla</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">24.3K</div>
+          <div class="stat-label">👁️ Viewers</div>
+        </div>
+      </div>
+    </div>
 
-  <div class="players">
-    <h2>⚡ JUGADORES EN BATALLA</h2>
-    <div class="grid">
-      <button class="player-btn" onclick="select(this, 'IceStorm')">⚔️ IceStorm 12⚡</button>
-      <button class="player-btn" onclick="select(this, 'ThunderAxe')">⚔️ ThunderAxe 8⚡</button>
-      <button class="player-btn" onclick="select(this, 'FrostByte')">⚔️ FrostByte 15⚡</button>
-      <button class="player-btn" onclick="select(this, 'StormShield')">⚔️ StormShield 5⚡</button>
-      <button class="player-btn" onclick="select(this, 'VoidSlayer')">⚔️ VoidSlayer 10⚡</button>
-      <button class="player-btn" onclick="select(this, 'IceBreaker')">⚔️ IceBreaker 9⚡</button>
-      <button class="player-btn" onclick="select(this, 'LightningKing')">⚔️ LightningKing 4⚡</button>
-      <button class="player-btn" onclick="select(this, 'FrostGuard')">⚔️ FrostGuard 7⚡</button>
+    <div class="section">
+      <h2>⚡ GUERREROS EN BATALLA</h2>
+      <div class="grid">
+        <button class="player-btn" onclick="selectPlayer(this, 'IceStorm', 12)">⚔️<br>IceStorm<br>12⚡</button>
+        <button class="player-btn" onclick="selectPlayer(this, 'ThunderAxe', 8)">⚔️<br>ThunderAxe<br>8⚡</button>
+        <button class="player-btn" onclick="selectPlayer(this, 'FrostByte', 15)">⚔️<br>FrostByte<br>15⚡</button>
+        <button class="player-btn" onclick="selectPlayer(this, 'StormShield', 5)">⚔️<br>StormShield<br>5⚡</button>
+        <button class="player-btn" onclick="selectPlayer(this, 'VoidSlayer', 10)">⚔️<br>VoidSlayer<br>10⚡</button>
+        <button class="player-btn" onclick="selectPlayer(this, 'IceBreaker', 9)">⚔️<br>IceBreaker<br>9⚡</button>
+        <button class="player-btn" onclick="selectPlayer(this, 'LightningKing', 4)">⚔️<br>LightningKing<br>4⚡</button>
+        <button class="player-btn" onclick="selectPlayer(this, 'FrostGuard', 7)">⚔️<br>FrostGuard<br>7⚡</button>
+      </div>
+    </div>
+
+    <div class="section" id="streamSection" style="display: none;">
+      <h2>🎮 STREAM PRINCIPAL</h2>
+      <p style="font-size: 18px; color: #00D9FF;"><strong id="streamName"></strong></p>
+      <p>💀 Kills: <span id="streamKills" style="color: #00D9FF;"></span></p>
+    </div>
+
+    <div class="footer">
+      <p>⚡ BERSERKER TOURNAMENT CONTROL v1.0</p>
+      <p>Prepare for Battle</p>
     </div>
   </div>
 
-  <div id="stream" style="margin-top: 20px; padding: 20px; background: #0f1e2e; border-radius: 5px; border-left: 4px solid #00D9FF; display: none;">
-    <h3 style="color: #00D9FF;">🎮 Stream Principal: <span id="playerName"></span></h3>
-  </div>
-
-  <div class="footer">
-    <p>⚡ BERSERKER TOURNAMENT CONTROL v1.0</p>
-    <p>Prepare for Battle</p>
-  </div>
-
   <script>
-    function select(btn, name) {
+    function selectPlayer(btn, name, kills) {
       document.querySelectorAll('.player-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.getElementById('playerName').textContent = name;
-      document.getElementById('stream').style.display = 'block';
+      document.getElementById('streamName').textContent = name;
+      document.getElementById('streamKills').textContent = kills;
+      document.getElementById('streamSection').style.display = 'block';
+    }
+
+    function toggleRecording() {
+      const btn = document.getElementById('recordBtn');
+      btn.textContent = btn.textContent.includes('⚫') ? '🔴 GRABANDO' : '⚫ GRABAR';
+    }
+
+    function toggleLive() {
+      const btn = document.getElementById('liveBtn');
+      btn.textContent = btn.textContent.includes('📡') ? '✅ EN VIVO' : '📡 EN VIVO';
     }
   </script>
 </body>
