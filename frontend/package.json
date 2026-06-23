@@ -7,10 +7,18 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
+=======
+    "axios": "^1.18.1",
+>>>>>>> da671980a215288c39a2bdeb861cc2a37fc94061
     "lucide-react": "^1.21.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
+=======
+    "socket.io-client": "^4.8.3",
+>>>>>>> da671980a215288c39a2bdeb861cc2a37fc94061
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -36,5 +44,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+<<<<<<< HEAD
+=======
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.1"
+>>>>>>> da671980a215288c39a2bdeb861cc2a37fc94061
   }
 }

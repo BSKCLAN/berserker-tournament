@@ -11,6 +11,10 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "axios": "^1.18.1",
+>>>>>>> da671980a215288c39a2bdeb861cc2a37fc94061
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
